@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  /* Base colors */
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Brand colors */
+  --primary: #bfa14a;
+  --primary-light: #ffe066;
+  --primary-dark: #8c7834;
+  
+  /* UI colors */
+  --card-bg: #ffffff;
+  --card-border: rgba(191, 161, 74, 0.1);
+  --card-hover-border: rgba(191, 161, 74, 0.3);
+  
+  /* Text colors */
+  --text-primary: #171717;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  
+  /* Font families */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Base colors dark mode */
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    
+    /* UI colors dark mode */
+    --card-bg: #1a1612;
+    --card-border: rgba(191, 161, 74, 0.1);
+    --card-hover-border: rgba(191, 161, 74, 0.3);
+    
+    /* Text colors dark mode */
+    --text-primary: #ededed;
+    --text-secondary: #bbbbbb;
+    --text-muted: #888888;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans);
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Enhanced focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Enhanced card styles */
+.product-card {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
